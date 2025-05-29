@@ -59,6 +59,9 @@ class LlamaRAGSystem:
         
         print("RAG system initialized successfully!")
     
+    def get_existing_count(self):
+        return self.collection.count()
+
     def _test_llama_connection(self):
         """Test connection to local Llama instance"""
         try:

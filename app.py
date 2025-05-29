@@ -75,6 +75,7 @@ def initialize_rag_system():
                 embedding_model=st.session_state.embedding_model
             )
             st.session_state.rag_system = rag_system
+            st.session_state.documents_processed = st.session_state.rag_system.get_existing_count() > 0
             st.success("✅ RAG system initialized successfully!")
             return True
     except Exception as e:
@@ -354,15 +355,17 @@ def main():
         
         # System Status
         st.markdown("### System Status")
+        rag_status = st.empty()
+        doc_status = st.empty()
         if st.session_state.rag_system:
-            st.success("✅ RAG System Ready")
+            rag_status.success("✅ RAG System Ready")
         else:
-            st.error("❌ RAG System Not Initialized")
+            rag_status.error("❌ RAG System Not Initialized")
         
         if st.session_state.documents_processed:
-            st.success("✅ Documents Loaded")
+            doc_status.success("✅ Documents Loaded")
         else:
-            st.warning("⚠️ No Documents Loaded")
+            doc_status.warning("⚠️ No Documents Loaded")
     
     # Main content tabs
     tab1, tab2, tab3, tab4 = st.tabs(["📤 Upload Documents", "💬 Chat", "📊 Statistics", "🔧 System Info"])
@@ -380,6 +383,7 @@ def main():
         
         if st.button("Process Documents", disabled=not uploaded_files or not st.session_state.rag_system):
             process_uploaded_files(uploaded_files)
+            doc_status.success("✅ Documents Loaded")
         
         # Processing instructions
         with st.expander("📖 How to use"):
