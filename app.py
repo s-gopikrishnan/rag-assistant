@@ -14,7 +14,7 @@ from llama_rag_system import LlamaRAGSystem
 
 # Page configuration
 st.set_page_config(
-    page_title="Local RAG System",
+    page_title="AI Assistant for Enterprise Document Processing",
     page_icon="📚",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -224,7 +224,6 @@ def display_chat_interface():
                 
             except Exception as e:
                 st.error(f"❌ Error processing query: {str(e)}")
-# Add these to your Streamlit app in the Statistics tab
 
 def display_debug_tools():
     """Display debugging tools"""
@@ -326,8 +325,8 @@ def main():
     """Main application"""
     
     # Header
-    st.markdown('<h1 class="main-header">📚 Local RAG System</h1>', unsafe_allow_html=True)
-    st.markdown("Chat with your documents using local Llama 3.2 and ChromaDB")
+    st.markdown('<h1 class="main-header">📚 AI Assistant for Enterprise Document Processing</h1>', unsafe_allow_html=True)
+    st.markdown("Chat with your documents using local LLM and ChromaDB")
     
     # Sidebar configuration
     with st.sidebar:
@@ -336,7 +335,10 @@ def main():
         # RAG System Settings
         st.markdown("### RAG System")
         st.session_state.llama_url = st.text_input("Llama URL", value="http://localhost:11434")
-        st.session_state.model_name = st.text_input("Model Name", value="llama3.2")
+        st.session_state.model_name = st.selectbox(
+            "Model Name",
+            ["llama3.2", "gemma3:4b"]
+        )
         st.session_state.db_path = st.text_input("Database Path", value="./chroma_db")
         st.session_state.embedding_model = st.selectbox(
             "Embedding Model",
@@ -349,7 +351,7 @@ def main():
         # Query Settings
         st.markdown("### Query Settings")
         st.session_state.max_context_chunks = st.slider("Max Context Chunks", 1, 10, 5)
-        st.session_state.min_similarity = st.slider("Min Similarity", 0.0, 1.0, 0.3, 0.1)
+        st.session_state.min_similarity = st.slider("Min Similarity", 0.0, 1.0, 0.1, 0.1)
         st.session_state.max_tokens = st.slider("Max Response Tokens", 128, 2048, 512)
         st.session_state.temperature = st.slider("Temperature", 0.0, 1.0, 0.1, 0.1)
         
@@ -417,7 +419,7 @@ def main():
     
     with tab3:
         display_database_stats()
-        display_debug_tools()  # Add this line
+        display_debug_tools()
     
     with tab4:
         st.markdown("### 🔧 System Information")

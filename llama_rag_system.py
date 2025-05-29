@@ -76,7 +76,7 @@ class LlamaRAGSystem:
             )
             
             if response.status_code == 200:
-                print(f"✓ Connected to Llama 3.2 at {self.llama_url}")
+                print(f"✓ Connected to {self.model_name} at {self.llama_url}")
             else:
                 raise Exception(f"HTTP {response.status_code}")
                 
@@ -277,8 +277,9 @@ ANSWER:"""
         
         # Debug: Show prompt length
         print(f"📝 Generated prompt length: {len(prompt)} characters")
+        #print(f"📝 Generated prompt\n\n\n: {prompt}\n\n\n")
         
-        print(f"🤖 Querying Llama 3.2...")
+        print(f"🤖 Querying {self.model_name}...")
         
         # Step 3: Query Llama
         answer = self.query_llama(
