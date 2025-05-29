@@ -1,0 +1,36 @@
+# Python cache and artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+.env/
+*.env
+
+# VSCode settings
+.vscode/
+
+# MacOS files
+.DS_Store
+
+# Project-specific
+data/
+chroma_persist/
+db/
+embeddings/
+*.log
+bkp/
+temp_uploads/
+
+# ChromaDB SQLite files
+*.chroma/
+*.chroma_db/
+*.bin
+*.sqlite3
+*.db

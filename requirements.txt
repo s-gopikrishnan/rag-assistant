@@ -1,0 +1,34 @@
+# Core document processing libraries
+pymupdf
+python-docx
+python-pptx
+pdfplumber
+
+# For OCR capability
+pytesseract
+Pillow
+
+# For local embeddings and vector database
+chromadb
+sentence-transformers
+
+# For LangChain integration (often used with ChromaDB and document loading)
+langchain-chroma
+langchain-community
+langchain-core
+langchain-text-splitters
+
+# For building interactive web applications
+streamlit
+
+# For data manipulation and analysis
+pandas
+
+# For creating interactive plots and visualizations
+plotly
+
+# Optional: For better text cleaning and NLP
+nltk
+spacy
+# For spacy, you typically need to download a language model after installation:
+# python -m spacy download en_core_web_sm
