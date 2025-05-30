@@ -342,7 +342,7 @@ def main():
         st.session_state.db_path = st.text_input("Database Path", value="./chroma_db")
         st.session_state.embedding_model = st.selectbox(
             "Embedding Model",
-            ["all-MiniLM-L6-v2", "all-mpnet-base-v2", "multi-qa-MiniLM-L6-cos-v1"]
+            ["all-MiniLM-L6-v2", "BAAI/bge-base-en", "all-mpnet-base-v2", "multi-qa-MiniLM-L6-cos-v1"]
         )
         
         if st.button("Initialize RAG System"):
