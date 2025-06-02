@@ -55,7 +55,7 @@ ollama serve
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd rag-document-processor
+cd rag-assistant
 
 # Install dependencies
 pip install -r requirements.txt
@@ -290,5 +290,3 @@ For issues and questions:
 - [ ] API endpoint for programmatic access
 
 ---
-
-**Built with ❤️ using Ollama, ChromaDB, and Streamlit**
